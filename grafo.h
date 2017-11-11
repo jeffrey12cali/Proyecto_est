@@ -1,8 +1,15 @@
+/*
+ *Autores : Jeffrey Garcia, Mauricio Cortés
+ *fecha de creacion : 9 de noviembre del 2017
+ *fecha última modificacion : 11 de noviembre del 2017
+ *vesion : 0.1
+ *Archivo: grafo.h
+*/
+
 #ifndef __GRAFO_H
 #define __GRAFO_H
 
 #include <vector>
-//#include <list>
 
 template <class T>
 class Nodo{
@@ -14,7 +21,7 @@ public:
 
 template <class T>
 class Grafo{
-private:
+protected:
 	vector<Nodo> V; //Vertices
 	vector<vector<Nodo>> E; //Aristas
 	vector<vector<int>> P; //Ponderaciones
@@ -33,3 +40,5 @@ public:
 	int ObtenerNumAristas();
 	~Grafo();
 };
+
+#endif // __GRAFO_H
