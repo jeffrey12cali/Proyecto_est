@@ -2,7 +2,7 @@
 #define __GRAFO_H
 
 #include <vector>
-#include <list>
+//#include <list>
 
 template <class T>
 class Nodo{
@@ -16,8 +16,8 @@ template <class T>
 class Grafo{
 private:
 	vector<Nodo> V; //Vertices
-	vector<list<Nodo>> E; //Aristas
-	vector<int> P; //Ponderaciones
+	vector<vector<Nodo>> E; //Aristas
+	vector<vector<int>> P; //Ponderaciones
 	int nAri;
 	int nVert;
 public:
@@ -28,7 +28,7 @@ public:
 	void ModificarArista(Nodo n1, Nodo n2, int valor);
 	void EliminarArista(Nodo n1, Nodo n2);
 	void EliminarNodo(Nodo n1);
-	list<Nodo> ObtenerListaAdy(Nodo n1);
+	vector<Nodo> ObtenerListaAdy(Nodo n1);
 	int ObtenerNumVertices();
 	int ObtenerNumAristas();
 	~Grafo();
