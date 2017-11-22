@@ -193,8 +193,6 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 			break;
 		}
 	}
-<<<<<<< HEAD
-	
 	for(BusGrafoN2;BusGrafoN2 < V.size();BusGrafoN2++){
 		if(V[BusGrafoN2]== n2){
 			for(int i=0; i < E[BusGrafoN2].size();i++){
@@ -204,14 +202,12 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 					P[BusGrafoN2].erase(P[BusGrafoN2].begin()+i);
 					nk1=true;
 				}
-=======
 	for(int i=0;i < E[pos2].size();i++){
 		if(E[pos2][i]==n1){
 			E[pos2].erase(E[pos2].begin()+i);
 			P[pos2].erase(P[pos2].begin()+i);
 			nk1=true;
 			break;
->>>>>>> 10cadabf2a7bc19937bd7142a620df5682e2c379
 		}
 	}
 	if(nk and nk1)
@@ -220,14 +216,16 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 }
 /********************************************************************************************************************/
 template <class T>
-void EliminarNodo(T n1){
-	for (vector<T>::iterator it = V.begin(); it != V.end(); it++){
-		if (*it == n1){
-			V.erase(it);
-			E.erase(it);
-			P.erase(it);
+void Grafo<T>::EliminarNodo(T n1){
+	int i;
+	for (i = 0; i < nVert; i++){
+		if (V[i] == n1){
+			V.erase(V.begin()+i);
+			E.erase(E.begin()+i);
+			P.erase(P.begin()+i);
 		}
 	}
+	nVert--;
 }
 /********************************************************************************************************************/
 template <class T>
