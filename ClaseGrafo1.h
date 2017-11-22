@@ -10,31 +10,8 @@
 #define __GRAFO_H
 
 #include <vector>
-#include <iostream>
 
 using namespace std;
-
-template <class T>
-class Nodo{
-public:
-	T dato;
-	Nodo();
-	Nodo(T elem);
-	~Nodo();
-};
-
-template<class T>
-Nodo<T>::Nodo(){
-}
-
-template<class T>
-Nodo<T>::Nodo(T elem){
-	dato = elem;
-}
-
-template<class T>
-Nodo<T>::~Nodo(){
-}
 
 template <class T>
 class Grafo{
@@ -45,29 +22,34 @@ protected:
 	int nAri;
 	int nVert;
 public:
+	/* Constructoras */
 	Grafo(); //CrearGrafoVacio
 	Grafo(vector<T>); //CrearGrafoNoVacio
+
+	/* Modificadoras */
 	void AgregarArista(T dato1, T dato2);
 	void AgregarArista(T dato1, T dato2, int valor);
 	void AgregarNodo(T n1);
 	void ModificarArista(T n1, T n2, int valor);
 	void EliminarArista(T n1,T n2);
 	void EliminarNodo(T n1);
+
+	/* Analizadoras */
 	vector<T> ObtenerListaAdy(T n1);
 	int ObtenerNumVertices();
 	int ObtenerNumAristas();
+	vector<T> ObtenerVertices();
 	vector<int> ObtenerPonderaciones(T n1);
+
+
 	~Grafo();
 };
-
-
 /******************************************************************************************************************/
 template <class T>
 Grafo<T>::Grafo(){
 	nVert = 0;
 	nAri = 0;
 }
-
 /******************************************************************************************************************/
 template <class T>
 Grafo<T>::Grafo(vector<T> nodos){
@@ -85,9 +67,7 @@ Grafo<T>::Grafo(vector<T> nodos){
 		nV++;
 	}
 }
-
 /******************************************************************************************************************/
-
 template <class T>
 void Grafo<T>::AgregarArista(T dato1, T dato2){
 	int i = 0, pos1 = 1, pos2 = 1;
@@ -125,6 +105,16 @@ void Grafo<T>::AgregarArista(T dato1, T dato2, int valor){
 	if (ver1 == 0 && ver2 == 0)
 		nAri += 1;
 }
+/*********************************************************************************************************************/
+template<class T>
+void Grafo<T>::AgregarNodo(T n1){
+	vector<T> nodoNew;
+	vector<int> nodoNewPonds;
+	V.push_back(n1);
+	E.push_back(nodoNew);
+	P.push_back(nodoNewPonds);
+	nVert++;
+}
 /********************************************************************************************************************/
 template <class T>
 void Grafo<T>::ModificarArista(T n1, T n2, int valor){
@@ -152,28 +142,6 @@ void Grafo<T>::ModificarArista(T n1, T n2, int valor){
 		P[pos1][pos1_2] = valor;
 		P[pos2][pos2_2] = valor;
 	}
-}
-/******************************************************************************************************************/
-template <class T>
-int Grafo<T>::ObtenerNumVertices(){
-	return nVert;
-}
-/*******************************************************************************************************************/
-template <class T>
-int Grafo<T>::ObtenerNumAristas(){
-	return nAri;
-}
-/********************************************************************************************************************/
-template <class T>
-vector<int> Grafo<T>::ObtenerPonderaciones(T n1){
-	int i, pos;
-	for (i = 0; i < nVert; i++){
-		if (V[i] == n1){
-			pos = i;
-			break;
-		}
-	}
-	return P[pos];
 }
 /**********************************************************************************************************************/
 template <class T>
@@ -204,7 +172,6 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 	}
 	if(nk and nk1)
 		nAri--;
-
 }
 /********************************************************************************************************************/
 template <class T>
@@ -231,20 +198,33 @@ vector<T> Grafo<T>::ObtenerListaAdy(T n1){
 	}
 	return E[k];
 }
-/*********************************************************************************************************************/
-
-template<class T>
-void Grafo<T>::AgregarNodo(T n1){
-	vector<T> nodoNew;
-	vector<int> nodoNewPonds;
-	V.push_back(n1);
-	E.push_back(nodoNew);
-	P.push_back(nodoNewPonds);
-	nVert++;
+/******************************************************************************************************************/
+template <class T>
+int Grafo<T>::ObtenerNumVertices(){
+	return nVert;
 }
-
+/*******************************************************************************************************************/
+template <class T>
+int Grafo<T>::ObtenerNumAristas(){
+	return nAri;
+}
+/*******************************************************************************************************************/
+vector<T> Grafo<T>::ObtenerVertices(){
+	return V;
+}
+/********************************************************************************************************************/
+template <class T>
+vector<int> Grafo<T>::ObtenerPonderaciones(T n1){
+	int i, pos;
+	for (i = 0; i < nVert; i++){
+		if (V[i] == n1){
+			pos = i;
+			break;
+		}
+	}
+	return P[pos];
+}
 /*********************************************************************************************************************/
-
 template <class T>
 Grafo<T>::~Grafo(){
 }
