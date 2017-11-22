@@ -206,7 +206,19 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 		nAri--;
 
 }
-
+/********************************************************************************************************************/
+template <class T>
+void Grafo<T>::EliminarNodo(T n1){
+	int i;
+	for (i = 0; i < nVert; i++){
+		if (V[i] == n1){
+			V.erase(V.begin()+i);
+			E.erase(E.begin()+i);
+			P.erase(P.begin()+i);
+		}
+	}
+	nVert--;
+}
 /********************************************************************************************************************/
 template <class T>
 vector<T> Grafo<T>::ObtenerListaAdy(T n1){
