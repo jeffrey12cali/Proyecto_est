@@ -177,23 +177,23 @@ vector<int> Grafo<T>::ObtenerPonderaciones(T n1){
 /**********************************************************************************************************************/
 template <class T>
 void Grafo<T>::EliminarArista(T n1,T n2){
-	int BusGrafoN1=0;
-	int BusGrafoN2=0;
-	bool nk= false;
-	bool nk1= false;
-	for(BusGrafoN1;BusGrafoN1 < V.size();BusGrafoN1++){
-		if(V[BusGrafoN1]== n1){
-			for(int i=0; i < E[BusGrafoN1].size();i++){
-				if( E[BusGrafoN1][i]== n2){
-					E[BusGrafoN1].erase(E[BusGrafoN1].begin()+i);
-					P[BusGrafoN1].erase(P[BusGrafoN1].begin()+i);
-					nk=true;
-					
-				}
-			}
-		}
-		break;
+	int pos1, pos2;
+	bool nk=false,nk1=false;
+	for (int i=0; i< nVert;i++){
+		if(V[i]== n1)
+			pos1=i;
+		if (V[i]==n2)
+			pos2=i;
 	}
+	for (int i=0; i <E[pos1].size();i++){
+		if(E[pos1][i]==n2){
+			E[pos1].erase(E[pos1].begin()+i);
+			P[pos1].erase(P[pos1].begin()+i);
+			nk=true;
+			break;
+		}
+	}
+<<<<<<< HEAD
 	
 	for(BusGrafoN2;BusGrafoN2 < V.size();BusGrafoN2++){
 		if(V[BusGrafoN2]== n2){
@@ -204,13 +204,19 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 					P[BusGrafoN2].erase(P[BusGrafoN2].begin()+i);
 					nk1=true;
 				}
+=======
+	for(int i=0;i < E[pos2].size();i++){
+		if(E[pos2][i]==n1){
+			E[pos2].erase(E[pos2].begin()+i);
+			P[pos2].erase(P[pos2].begin()+i);
+			nk1=true;
+			break;
+>>>>>>> 10cadabf2a7bc19937bd7142a620df5682e2c379
 		}
-		break;
 	}
-	
-}
 	if(nk and nk1)
 		nAri--;
+
 }
 /********************************************************************************************************************/
 template <class T>
