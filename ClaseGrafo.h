@@ -77,7 +77,6 @@ Grafo<T>::Grafo(vector<T> nodos){
 	vector<T> lisAdy;
 	vector<int> lisPond;
 	while (nV < nodos.size()){
-	
 		V.push_back(nodos[nV]);
 		E.push_back(lisAdy);
 		P.push_back(lisPond);
@@ -202,11 +201,21 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 	}
 }
 }
-
+/********************************************************************************************************************/
+template <class T>
+void EliminarNodo(T n1){
+	for (vector<T>::iterator it = V.begin(); it != V.end(); it++){
+		if (*it == n1){
+			V.erase(it);
+			E.erase(it);
+			P.erase(it);
+		}
+	}
+}
 /********************************************************************************************************************/
 template <class T>
 vector<T> Grafo<T>::ObtenerListaAdy(T n1){
-	for(int h=0; h < V.size();h++){
+	for(int h=0; h < V.size(); h++){
 		if(h== n1){
 			return E[h];
 		}
