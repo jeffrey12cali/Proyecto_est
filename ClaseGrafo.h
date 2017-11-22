@@ -194,6 +194,15 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 			break;
 		}
 	}
+	for(BusGrafoN2;BusGrafoN2 < V.size();BusGrafoN2++){
+		if(V[BusGrafoN2]== n2){
+			for(int i=0; i < E[BusGrafoN2].size();i++){
+				if( E[BusGrafoN2][i]== n1){
+					
+					E[BusGrafoN2].erase(E[BusGrafoN2].begin()+i);
+					P[BusGrafoN2].erase(P[BusGrafoN2].begin()+i);
+					nk1=true;
+				}
 	for(int i=0;i < E[pos2].size();i++){
 		if(E[pos2][i]==n1){
 			E[pos2].erase(E[pos2].begin()+i);
@@ -206,10 +215,32 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 		nAri--;
 
 }
+<<<<<<< HEAD
 
 /********************************************************************************************************************/
 template <class T>
 vector<T> Grafo<T>::ObtenerListaAdy(T n1){
+=======
+/********************************************************************************************************************/
+template <class T>
+void Grafo<T>::EliminarNodo(T n1){
+	int i;
+	for (i = 0; i < nVert; i++){
+		if (V[i] == n1){
+			V.erase(V.begin()+i);
+			E.erase(E.begin()+i);
+			P.erase(P.begin()+i);
+		}
+	}
+	nVert--;
+}
+/********************************************************************************************************************/
+template <class T>
+vector<T> Grafo<T>::ObtenerListaAdy(T n1){
+	for(int h=0; h < V.size(); h++){
+		if(h== n1){
+			return E[h];
+>>>>>>> origin/master
 	int k;
 	for(int h=0; h < V.size();h++){
 		if(V[h]== n1){
