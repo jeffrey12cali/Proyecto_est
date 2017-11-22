@@ -197,7 +197,6 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 	
 	for(BusGrafoN2;BusGrafoN2 < V.size();BusGrafoN2++){
 		if(V[BusGrafoN2]== n2){
-			
 			for(int i=0; i < E[BusGrafoN2].size();i++){
 				if( E[BusGrafoN2][i]== n1){
 					
@@ -227,17 +226,14 @@ void EliminarNodo(T n1){
 /********************************************************************************************************************/
 template <class T>
 vector<T> Grafo<T>::ObtenerListaAdy(T n1){
-<<<<<<< HEAD
 	for(int h=0; h < V.size(); h++){
 		if(h== n1){
 			return E[h];
-=======
 	int k;
 	for(int h=0; h < V.size();h++){
 		if(V[h]== n1){
 			k=h;
 			break;
->>>>>>> a991c236ab5b9113f9e876cdfe12837a90d12315
 		}
 	}
 	return E[k];
