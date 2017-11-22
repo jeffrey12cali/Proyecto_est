@@ -1,8 +1,8 @@
 /*
  *Autores : Jeffrey Garcia, Mauricio Cortés
  *fecha de creacion : 9 de noviembre del 2017
- *fecha última modificacion : 22 de noviembre del 2017
- *vesion : 0.3
+ *fecha última modificacion : 23 de noviembre del 2017
+ *vesion : 0.5
  *Archivo: grafo.h
 */
 
