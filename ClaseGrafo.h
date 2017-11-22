@@ -180,37 +180,52 @@ template <class T>
 void Grafo<T>::EliminarArista(T n1,T n2){
 	int BusGrafoN1=0;
 	int BusGrafoN2=0;
+	bool nk= false;
+	bool nk1= false;
 	for(BusGrafoN1;BusGrafoN1 < V.size();BusGrafoN1++){
-		if(BusGrafoN1 == n1){
+		if(V[BusGrafoN1]== n1){
 			for(int i=0; i < E[BusGrafoN1].size();i++){
-				if( i== n2){
+				if( E[BusGrafoN1][i]== n2){
 					E[BusGrafoN1].erase(E[BusGrafoN1].begin()+i);
 					P[BusGrafoN1].erase(P[BusGrafoN1].begin()+i);
+					nk=true;
+					
 				}
 			}
 		}
-		
+		break;
 	}
+	
 	for(BusGrafoN2;BusGrafoN2 < V.size();BusGrafoN2++){
-		if(BusGrafoN2 == n2){
+		if(V[BusGrafoN2]== n2){
+			
 			for(int i=0; i < E[BusGrafoN2].size();i++){
-				if( i== n1){
+				if( E[BusGrafoN2][i]== n1){
+					
 					E[BusGrafoN2].erase(E[BusGrafoN2].begin()+i);
 					P[BusGrafoN2].erase(P[BusGrafoN2].begin()+i);
+					nk1=true;
 				}
 		}
+		break;
 	}
+	
 }
+	if(nk and nk1)
+		nAri--;
 }
 
 /********************************************************************************************************************/
 template <class T>
 vector<T> Grafo<T>::ObtenerListaAdy(T n1){
+	int k;
 	for(int h=0; h < V.size();h++){
-		if(h== n1){
-			return E[h];
+		if(V[h]== n1){
+			k=h;
+			break;
 		}
 	}
+	return E[k];
 }
 /*********************************************************************************************************************/
 
