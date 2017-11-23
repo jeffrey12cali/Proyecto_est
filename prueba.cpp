@@ -9,13 +9,12 @@ int main(){
 	g.AgregarArista(1,2);
 	g.AgregarArista(1,3);
 	g.AgregarArista(1,4,8);
-	cout << g.ObtenerNumAristas() << endl;
-	vector <int> ady(g.ObtenerListaAdy(1));
-	/*for (int i = 0; i < ady.size(); i++)
-		cout << ady[i] << ",";*/
-	vector<int> pond(g.ObtenerPonderaciones(1));
-	for (int i = 0; i < pond.size(); i++)
-		cout << pond[i] << ",";
+	g.EliminarArista(1,2);
+	g.EliminarArista(1,3);
+	g.EliminarNodo(1);
+	vector<int> ady(g.ObtenerVertices());
+	for (int i = 0; i < ady.size(); i++)
+		cout << ady[i] << ",";
 /*	g.AgregarArista(3,2);
 	g.AgregarArista(4,2);
 	g.EliminarArista(1,2);

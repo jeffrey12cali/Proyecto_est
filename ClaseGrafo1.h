@@ -208,9 +208,11 @@ void Grafo<T>::EliminarNodo(T n1){
 	int i;
 	for (i = 0; i < nVert; i++){
 		if (V[i] == n1){
-			V.erase(V.begin()+i);
-			E.erase(E.begin()+i);
-			P.erase(P.begin()+i);
+			if (E[i].empty() && P[i].empty()){
+				V.erase(V.begin()+i);
+				E.erase(E.begin()+i);
+				P.erase(P.begin()+i);
+			}
 		}
 	}
 	nVert--;
