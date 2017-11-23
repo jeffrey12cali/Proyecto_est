@@ -15,6 +15,15 @@ int main(){
 	vector<int> ady(g.ObtenerVertices());
 	for (int i = 0; i < ady.size(); i++)
 		cout << ady[i] << ",";
+	cout << endl;
+	g.AgregarNodo(5);
+	ady = g.ObtenerVertices();
+	for (int i = 0; i < ady.size(); i++)
+		cout << ady[i] << ",";
+	g.EliminarArista(1,4);
+	cout << endl;
+	cout << g.ObtenerNumVertices() << endl;
+	cout << g.ObtenerNumAristas() << endl;
 /*	g.AgregarArista(3,2);
 	g.AgregarArista(4,2);
 	g.EliminarArista(1,2);
