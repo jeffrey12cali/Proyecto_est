@@ -59,7 +59,6 @@ Grafo<T>::Grafo(vector<T> nodos){
 	vector<T> lisAdy;
 	vector<int> lisPond;
 	while (nV < nodos.size()){
-	
 		V.push_back(nodos[nV]);
 		E.push_back(lisAdy);
 		P.push_back(lisPond);
@@ -70,40 +69,70 @@ Grafo<T>::Grafo(vector<T> nodos){
 /******************************************************************************************************************/
 template <class T>
 void Grafo<T>::AgregarArista(T dato1, T dato2){
-	int i = 0, pos1 = 1, pos2 = 1;
-	for (i = 0; i < V.size() && (pos1 != 0 || pos2 != 0); i++){
-		if (V[i] == dato1){
-			E[i].push_back(dato2);
-			P[i].push_back(0);
-			pos1 = 0;
+	if (dato1 != dato2){
+		int i = 0, ver1 = 1, ver2 = 1, pos1, pos2;
+		for (i = 0; i < nVert && (ver1 != 0 || ver2 != 0); i++){
+			if (V[i] == dato1){
+				pos1 = i;
+				ver1 = 0;
+			}
+			else if (V[i] == dato2){
+				pos2 = i;
+				ver2 = 0;
+			}
 		}
-		else if (V[i] == dato2){
-			E[i].push_back(dato1);
-			P[i].push_back(0);
-			pos2 = 0;
+		if (ver1 == 0 && ver2 == 0){
+			for (i = 0; i < E[pos1].size(); i++){
+				if (E[pos1][i] == dato2)
+					ver1 = 1;
+			}
+			for (i = 0; i < E[pos2].size(); i++){
+				if (E[pos2][i] == dato1)
+					ver2 = 1;
+			}
+			if (ver1 == 0 && ver2 == 0){
+				E[pos1].push_back(dato2);
+				P[pos1].push_back(0);
+				E[pos2].push_back(dato1);
+				P[pos2].push_back(0);
+				nAri += 1;
+			}
 		}
 	}
-	if (pos1 == 0 && pos2 == 0)
-		nAri += 1;
 }
 /******************************************************************************************************************/
 template <class T>
 void Grafo<T>::AgregarArista(T dato1, T dato2, int valor){
-	int i = 0, ver1 = 1, ver2 = 1;
-	for (i = 0; i < nVert && (ver1 != 0 || ver2 != 0); i++){
-		if (V[i] == dato1){
-			E[i].push_back(dato2);
-			P[i].push_back(valor);
-			ver1 = 0;
+	if (dato1 != dato2){
+		int i = 0, ver1 = 1, ver2 = 1, pos1, pos2;
+		for (i = 0; i < nVert && (ver1 != 0 || ver2 != 0); i++){
+			if (V[i] == dato1){
+				pos1 = i;
+				ver1 = 0;
+			}
+			else if (V[i] == dato2){
+				pos2 = i;
+				ver2 = 0;
+			}
 		}
-		else if (V[i] == dato2){
-			E[i].push_back(dato1);
-			P[i].push_back(valor);
-			ver2 = 0;
+		if (ver1 == 0 && ver2 == 0){
+			for (i = 0; i < E[pos1].size(); i++){
+				if (E[pos1][i] == dato2)
+					ver1 = 1;
+			}
+			for (i = 0; i < E[pos2].size(); i++){
+				if (E[pos2][i] == dato1)
+					ver2 = 1;
+			}
+			if (ver1 == 0 && ver2 == 0){
+				E[pos1].push_back(dato2);
+				P[pos1].push_back(valor);
+				E[pos2].push_back(dato1);
+				P[pos2].push_back(valor);
+				nAri += 1;
+			}
 		}
 	}
-	if (ver1 == 0 && ver2 == 0)
-		nAri += 1;
 }
 /*********************************************************************************************************************/
 template<class T>
@@ -209,6 +238,7 @@ int Grafo<T>::ObtenerNumAristas(){
 	return nAri;
 }
 /*******************************************************************************************************************/
+template <class T>
 vector<T> Grafo<T>::ObtenerVertices(){
 	return V;
 }
