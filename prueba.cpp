@@ -1,29 +1,24 @@
 #include "ClaseGrafo1.h"
+#include "OperacionesGrafo.h"
 #include <vector>
 #include <iostream>
 using namespace std;
 int main(){
-	int myints[] = {1,2,3,4};
+	int myints[] = {1,2,3,4,5,6};
 	vector<int> fifth (myints, myints + sizeof(myints) / sizeof(int) );
 	Grafo<int> g(fifth);
 	g.AgregarArista(1,2);
-	g.AgregarArista(1,3);
-	g.AgregarArista(1,4,8);
-	g.EliminarArista(1,2);
-	g.EliminarArista(1,3);
-	g.EliminarNodo(1);
-	vector<int> ady(g.ObtenerVertices());
-	for (int i = 0; i < ady.size(); i++)
-		cout << ady[i] << ",";
-	cout << endl;
-	g.AgregarNodo(5);
-	ady = g.ObtenerVertices();
-	for (int i = 0; i < ady.size(); i++)
-		cout << ady[i] << ",";
-	g.EliminarArista(1,4);
-	cout << endl;
-	cout << g.ObtenerNumVertices() << endl;
+	g.AgregarArista(1,5);
+	g.AgregarArista(5,2);
+	g.AgregarArista(5,4);
+	g.AgregarArista(2,3);
+	g.AgregarArista(3,4);
+	g.AgregarArista(4,6);
 	cout << g.ObtenerNumAristas() << endl;
+	OperacionesGrafo<int> op;
+	vector<int> path(op.BreadthFirstSearch(g, 4));
+	for (int i = 0; i < path.size(); i++)
+		cout << path[i] << " ";
 /*	g.AgregarArista(3,2);
 	g.AgregarArista(4,2);
 	g.EliminarArista(1,2);
