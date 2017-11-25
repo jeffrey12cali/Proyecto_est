@@ -221,7 +221,7 @@ void Grafo<T>::EliminarNodo(T n1){
 template <class T>
 vector<T> Grafo<T>::ObtenerListaAdy(T n1){
 	int k;
-	for(int h=0; h < V.size();h++){
+	for(int h=0; h < nVert;h++){
 		if(V[h]== n1){
 			k=h;
 			break;
