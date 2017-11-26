@@ -85,7 +85,7 @@ vector<T> OperacionesGrafo<T>::DepthFirstSearch(Grafo<T> grafo, T raiz){
 	stack<int> pila;
 	pila.push(raiz);
 	nodos.push_back(raiz);
-		while(!pila.empty()){
+	while(!pila.empty()){
 		nodo=pila.top();
 		cabezaPila= grafo.ObtenerListaAdy(pila.top());
 		pila.pop();
@@ -98,7 +98,7 @@ vector<T> OperacionesGrafo<T>::DepthFirstSearch(Grafo<T> grafo, T raiz){
 		vis[pos]=1;
 		for(int i=0; i < cabezaPila.size();i++){
 			for(int k=0; k < nodosVertices.size();k++){
-				if(cabezaPila[i]== nodosVertices[k] and vis[k]==0  ){
+				if(cabezaPila[i]== nodosVertices[k] and vis[k]==0){
 					pila.push(cabezaPila[i]);
 					vis[k]=1;
 					nodos.push_back(cabezaPila[i]);
