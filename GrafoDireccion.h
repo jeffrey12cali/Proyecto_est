@@ -3,7 +3,7 @@
  *fecha de creacion : 9 de noviembre del 2017
  *fecha última modificacion : 23 de noviembre del 2017
  *vesion : 0.6
- *Archivo: grafo.h
+ *Archivo: GrafoDireccion.h
 */
 
 #ifndef __GRAFO_DIRECCION_H
@@ -14,7 +14,7 @@
 using namespace std;
 
 template <class T>
-class Grafo{
+class GrafoDireccion{
 protected:
 	vector<T> V; //Vertices
 	vector<vector<T> > E; //Aristas
@@ -23,8 +23,8 @@ protected:
 	int nVert;
 public:
 	/* Constructoras */
-	Grafo(); //CrearGrafoVacio
-	Grafo(vector<T>); //CrearGrafoNoVacio
+	GrafoDireccion(); //CrearGrafoDireccionVacio
+	GrafoDireccion(vector<T>); //CrearGrafoDireccionNoVacio
 
 	/* Modificadoras */
 	void AgregarArista(T dato1, T dato2);
@@ -42,17 +42,17 @@ public:
 	vector<int> ObtenerPonderaciones(T n1);
 
 
-	~Grafo();
+	~GrafoDireccion();
 };
 /******************************************************************************************************************/
 template <class T>
-Grafo<T>::Grafo(){
+GrafoDireccion<T>::GrafoDireccion(){
 	nVert = 0;
 	nAri = 0;
 }
 /******************************************************************************************************************/
 template <class T>
-Grafo<T>::Grafo(vector<T> nodos){
+GrafoDireccion<T>::GrafoDireccion(vector<T> nodos){
 	nVert = 0;
 	nAri = 0;
 	int nV=0;
@@ -68,7 +68,7 @@ Grafo<T>::Grafo(vector<T> nodos){
 }
 /******************************************************************************************************************/
 template <class T>
-void Grafo<T>::AgregarArista(T dato1, T dato2){
+void GrafoDireccion<T>::AgregarArista(T dato1, T dato2){
 	if (dato1 != dato2){
 		int i = 0, ver1 = 1, ver2 = 1, pos1, pos2;
 		for (i = 0; i < nVert && (ver1 != 0 || ver2 != 0); i++){
@@ -96,7 +96,7 @@ void Grafo<T>::AgregarArista(T dato1, T dato2){
 }
 /******************************************************************************************************************/
 template <class T>
-void Grafo<T>::AgregarArista(T dato1, T dato2, int valor){
+void GrafoDireccion<T>::AgregarArista(T dato1, T dato2, int valor){
 	if (dato1 != dato2){
 		int i = 0, ver1 = 1, ver2 = 1, pos1, pos2;
 		for (i = 0; i < nVert && (ver1 != 0 || ver2 != 0); i++){
@@ -124,7 +124,7 @@ void Grafo<T>::AgregarArista(T dato1, T dato2, int valor){
 }
 /*********************************************************************************************************************/
 template<class T>
-void Grafo<T>::AgregarNodo(T n1){
+void GrafoDireccion<T>::AgregarNodo(T n1){
 	vector<T> nodoNew;
 	vector<int> nodoNewPonds;
 	V.push_back(n1);
@@ -134,7 +134,7 @@ void Grafo<T>::AgregarNodo(T n1){
 }
 /********************************************************************************************************************/
 template <class T>
-void Grafo<T>::ModificarArista(T n1, T n2, int valor){
+void GrafoDireccion<T>::ModificarArista(T n1, T n2, int valor){
 	int i, pos1, pos2, pos1_2, pos2_2;
 	pos1 = pos2 = pos2_2 = pos2_2 = -1;
 	for (i = 0; i < nVert && (pos1 == -1 || pos2 == -1); i++){
@@ -155,7 +155,7 @@ void Grafo<T>::ModificarArista(T n1, T n2, int valor){
 }
 /**********************************************************************************************************************/
 template <class T>
-void Grafo<T>::EliminarArista(T n1,T n2){
+void GrafoDireccion<T>::EliminarArista(T n1,T n2){
 	int pos1, pos2;
 	bool nk=false, nk1=false;
 	for (int i=0; i< nVert;i++){
@@ -177,7 +177,7 @@ void Grafo<T>::EliminarArista(T n1,T n2){
 }
 /********************************************************************************************************************/
 template <class T>
-void Grafo<T>::EliminarNodo(T n1){
+void GrafoDireccion<T>::EliminarNodo(T n1){
 	int i;
 	for (i = 0; i < nVert; i++){
 		if (V[i] == n1){
@@ -192,7 +192,7 @@ void Grafo<T>::EliminarNodo(T n1){
 }
 /********************************************************************************************************************/
 template <class T>
-vector<T> Grafo<T>::ObtenerListaAdy(T n1){
+vector<T> GrafoDireccion<T>::ObtenerListaAdy(T n1){
 	int k;
 	for(int h=0; h < V.size();h++){
 		if(V[h]== n1){
@@ -204,22 +204,22 @@ vector<T> Grafo<T>::ObtenerListaAdy(T n1){
 }
 /******************************************************************************************************************/
 template <class T>
-int Grafo<T>::ObtenerNumVertices(){
+int GrafoDireccion<T>::ObtenerNumVertices(){
 	return nVert;
 }
 /*******************************************************************************************************************/
 template <class T>
-int Grafo<T>::ObtenerNumAristas(){
+int GrafoDireccion<T>::ObtenerNumAristas(){
 	return nAri;
 }
 /*******************************************************************************************************************/
 template <class T>
-vector<T> Grafo<T>::ObtenerVertices(){
+vector<T> GrafoDireccion<T>::ObtenerVertices(){
 	return V;
 }
 /********************************************************************************************************************/
 template <class T>
-vector<int> Grafo<T>::ObtenerPonderaciones(T n1){
+vector<int> GrafoDireccion<T>::ObtenerPonderaciones(T n1){
 	int i, pos;
 	for (i = 0; i < nVert; i++){
 		if (V[i] == n1){
@@ -231,7 +231,7 @@ vector<int> Grafo<T>::ObtenerPonderaciones(T n1){
 }
 /*********************************************************************************************************************/
 template <class T>
-Grafo<T>::~Grafo(){
+GrafoDireccion<T>::~GrafoDireccion(){
 }
 
-#endif // __GRAFO_DIRECCION_H
+#endif // __GrafoDireccion_DIRECCION_H
