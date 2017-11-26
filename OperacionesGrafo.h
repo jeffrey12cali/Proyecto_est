@@ -1,17 +1,28 @@
 /*
+<<<<<<< HEAD
  *Autores : Jeffrey Garcia, Mauricio Cortés
  *fecha de creacion : 9 de noviembre del 2017
  *fecha última modificacion : 24 de noviembre del 2017
+=======
+ *Autores : Jeffrey Garcia, Mauricio CortÃ©s
+ *fecha de creacion : 9 de noviembre del 2017
+ *fecha Ãºltima modificacion : 24 de noviembre del 2017
+>>>>>>> origin/master
  *vesion : 0.5
  *Archivo: OperacionesGrafo.h
 */
 
 #ifndef __OPERACIONES_GRAFO_H
 #define __OPERACIONES_GRAFO_H
+<<<<<<< HEAD
 #include <iostream>
 #include <queue>
 #include <stack>
 #include <algorithm>
+=======
+
+#include <queue>
+>>>>>>> origin/master
 #include "ClaseGrafo1.h"
 
 using namespace std;
@@ -65,6 +76,7 @@ vector<T> OperacionesGrafo<T>::BreadthFirstSearch(Grafo<T> grafo, T raiz){
 
 template <class T>
 vector<T> OperacionesGrafo<T>::DepthFirstSearch(Grafo<T> grafo, T raiz){
+<<<<<<< HEAD
 	vector<T> nodos;
 	vector<T> nodosVertices(grafo.ObtenerVertices());
 	vector<T> vis(grafo.ObtenerNumVertices(), 0);
@@ -103,8 +115,16 @@ vector<T> OperacionesGrafo<T>::DepthFirstSearch(Grafo<T> grafo, T raiz){
 
 
 
+=======
+}
+
+>>>>>>> origin/master
 template <class T>
 OperacionesGrafo<T>::~OperacionesGrafo(){
 }
 
+<<<<<<< HEAD
 #endif
+=======
+#endif
+>>>>>>> origin/master

@@ -1,16 +1,25 @@
-#include "ClaseGrafo.cpp"
-//#include <vector>
-//#include <iostream>
+#include "ClaseGrafo1.h"
+#include "OperacionesGrafo.h"
+#include <vector>
+#include <iostream>
 using namespace std;
 int main(){
-	int myints[] = {1,2,3,4};
+	int myints[] = {1,2,3,4,5,6};
 	vector<int> fifth (myints, myints + sizeof(myints) / sizeof(int) );
-	
 	Grafo<int> g(fifth);
-	
-
 	g.AgregarArista(1,2);
-	g.AgregarArista(3,2);
+	g.AgregarArista(1,5);
+	g.AgregarArista(5,2);
+	g.AgregarArista(5,4);
+	g.AgregarArista(2,3);
+	g.AgregarArista(3,4);
+	g.AgregarArista(4,6);
+	cout << g.ObtenerNumAristas() << endl;
+	OperacionesGrafo<int> op;
+	vector<int> path(op.BreadthFirstSearch(g, 4));
+	for (int i = 0; i < path.size(); i++)
+		cout << path[i] << " ";
+/*	g.AgregarArista(3,2);
 	g.AgregarArista(4,2);
 	g.EliminarArista(1,2);
 	g.AgregarNodo(5);
@@ -23,14 +32,7 @@ int main(){
 		cout<<pond1[l]<<" ";
 		cout<<endl;
 	cout<<g.ObtenerNumVertices()<<endl;
-	cout<<g.ObtenerNumAristas()<<endl;
-	//g.AgregarArista(3,4,8);
-	//g.ModificarArista(1,2,2);
-	//vector<int> pond2(g.ObtenerPonderaciones(1));
-	//for (int i = 0; i < pond2.size(); i++)
-	//	cout << pond2[i] << " ";
-	//cout << endl;
-	
+	cout<<g.ObtenerNumAristas()<<endl;*/
 	return 0;
 
 	
