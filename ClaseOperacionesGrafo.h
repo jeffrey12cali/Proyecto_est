@@ -93,11 +93,11 @@ vector<T> OperacionesGrafo<T>::DepthFirstSearch(Grafo<T> grafo, T raiz){
 	int pos;
 	stack<int> pila;
 	pila.push(raiz);
-	nodos.push_back(raiz);
 	while(!pila.empty()){
 		nodo=pila.top();
-		cabezaPila= grafo.ObtenerListaAdy(pila.top());
+		nodos.push_back(nodo);
 		pila.pop();
+		cabezaPila= grafo.ObtenerListaAdy(nodo);
 		for(int i=0;i < grafo.ObtenerNumVertices();i++){
 			if( nodo == nodosVertices[i]){
 			      pos=i;
@@ -110,8 +110,6 @@ vector<T> OperacionesGrafo<T>::DepthFirstSearch(Grafo<T> grafo, T raiz){
 				if(cabezaPila[i]== nodosVertices[k] and vis[k]==0){
 					pila.push(cabezaPila[i]);
 					vis[k]=1;
-					nodos.push_back(cabezaPila[i]);
-					break;
 				}
 			}
 		}
@@ -222,11 +220,11 @@ vector<T> OperacionesGrafo<T>::DepthFirstSearch(GrafoDireccion<T> grafo, T raiz)
 	int pos;
 	stack<int> pila;
 	pila.push(raiz);
-	nodos.push_back(raiz);
 	while(!pila.empty()){
 		nodo=pila.top();
-		cabezaPila= grafo.ObtenerListaAdy(pila.top());
+		nodos.push_back(nodo);
 		pila.pop();
+		cabezaPila= grafo.ObtenerListaAdy(nodo);
 		for(int i=0;i < grafo.ObtenerNumVertices();i++){
 			if( nodo == nodosVertices[i]){
 			      pos=i;
@@ -239,8 +237,6 @@ vector<T> OperacionesGrafo<T>::DepthFirstSearch(GrafoDireccion<T> grafo, T raiz)
 				if(cabezaPila[i]== nodosVertices[k] and vis[k]==0){
 					pila.push(cabezaPila[i]);
 					vis[k]=1;
-					nodos.push_back(cabezaPila[i]);
-					break;
 				}
 			}
 		}
