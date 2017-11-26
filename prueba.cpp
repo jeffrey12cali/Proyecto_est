@@ -1,5 +1,6 @@
-#include "ClaseGrafo1.h"
-#include "OperacionesGrafo.h"
+#include "ClaseGrafo.h"
+#include "ClaseGrafoDireccion.h"
+#include "ClaseOperacionesGrafo.h"
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -7,7 +8,7 @@ int main(){
 	int i, j;
 	int myints[] = {1,2,3,4};
 	vector<int> fifth (myints, myints + sizeof(myints) / sizeof(int) );
-	Grafo<int> g(fifth);
+	GrafoDireccion<int> g(fifth);
 	g.AgregarArista(1,2,1);
 	g.AgregarArista(1,3,2);
 	g.AgregarArista(2,4,4);
