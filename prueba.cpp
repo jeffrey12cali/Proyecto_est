@@ -4,7 +4,17 @@
 #include <iostream>
 using namespace std;
 int main(){
-	int myints[] = {1,2,3,4,5,6};
+	int i, j;
+	int myints[] = {1,2,3,4};
+	vector<int> fifth (myints, myints + sizeof(myints) / sizeof(int) );
+	Grafo<int> g(fifth);
+	g.AgregarArista(1,2,1);
+	g.AgregarArista(1,3,2);
+	g.AgregarArista(2,4,4);
+	g.AgregarArista(3,4,5);
+	OperacionesGrafo<int> op;
+	op.Dijkstra(g, 1);
+/*	int myints[] = {1,2,3,4,5,6};
 	vector<int> fifth (myints, myints + sizeof(myints) / sizeof(int) );
 	Grafo<int> g(fifth);
 	g.AgregarArista(1,2);
@@ -18,7 +28,7 @@ int main(){
 	OperacionesGrafo<int> op;
 	vector<int> path(op.BreadthFirstSearch(g, 4));
 	for (int i = 0; i < path.size(); i++)
-		cout << path[i] << " ";
+		cout << path[i] << " ";*/
 /*	g.AgregarArista(3,2);
 	g.AgregarArista(4,2);
 	g.EliminarArista(1,2);
