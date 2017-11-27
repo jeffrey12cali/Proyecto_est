@@ -21,23 +21,69 @@ protected:
 	vector<vector<int> > P; //Ponderaciones
 	int nAri;
 	int nVert;
-	//jfhjdrlkghfgh
+
 public:
 	/* Constructoras */
 	Grafo(); //CrearGrafoVacio
+	/*Constructor Grafo No vacio
+	Entradas:
+	vector<T> nodos. Donde el tamaño de nodos es mayor a cero.
+	Salidas:
+	Ninguna (void).
+	Procedimiento:
+	-Crea  N nodos en el vector V (vertices).Crea N vectores vacios en el vector de aristas.
+	-Crea N vectores vacios en el vector de ponderaciones.Inicializa (0) contador de aristas y vertices.
+	*/
 	Grafo(vector<T>); //CrearGrafoNoVacio
 
 	/* Modificadoras */
 	void AgregarArista(T dato1, T dato2);
 	void AgregarArista(T dato1, T dato2, int valor);
+	
+	/*Agregar Nodo
+	Entradas:
+	Nodo<T>.
+	Salidas:
+	Ninguna (Void)
+	Procedimiento:
+	Anexa el nodo n1 al vector V (vertices)
+	-Anexa un vector vacio en el vector de aristas,	-Anexa un vector vacio en el vector ponderaciones
+	*/
 	void AgregarNodo(T n1);
 	void ModificarArista(T n1, T n2, int valor);
+	/*Eliminar nodo
+	Entradas: nodo n1, nodo n2
+	Salidas:ninguna (void)
+	Procedimiento:
+	Dado dos nodos busca en el vector de aristas de cada nodo y elimina el nodo que se ingreso en la entrada, a su vez
+	tambien busca la posicion en el vector de pondoraciones  correspondientes a cada arista y elimina esa posicion en 
+	el vector de ponderacion y por ultimo resta en 1 la cantidad de aristas.
+	*/
 	void EliminarArista(T n1,T n2);
 	void EliminarNodo(T n1);
 
 	/* Analizadoras */
+	/*Obtener lista de Adyacencia
+	Entradas: nodo n1
+	Salidas:
+	vector<T> con N nodos adyacentes al nodo n1
+	Procedimiento:
+	Dado un nodo busca en el vector de vertices,  cuando lo encuentra, segun la posicion en la cual esta en el vector de vertices
+	entonces retorna la posicion X en E correspondiente a un vector de aristas del nodo n1.
+	*/
 	vector<T> ObtenerListaAdy(T n1);
+	/*Obtener numero de vertices
+	Entradas: ninguna
+	Salidas: int numero.
+	Procedimiento:
+	retorna el valor de la variable nAari. (numero de aristas)
+	*/
 	int ObtenerNumVertices();
+	/*Obtener numero de aritas
+	Entradas: ninguna
+	Salidas: int numero.
+	Procedimento:
+	Retorna el valor de la variable nVert.*/
 	int ObtenerNumAristas();
 	vector<T> ObtenerVertices();
 	vector<int> ObtenerPonderaciones(T n1);
@@ -53,6 +99,7 @@ Grafo<T>::Grafo(){
 }
 /******************************************************************************************************************/
 template <class T>
+
 Grafo<T>::Grafo(vector<T> nodos){
 	nVert = 0;
 	nAri = 0;
