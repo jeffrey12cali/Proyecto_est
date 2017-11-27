@@ -1,7 +1,7 @@
 /*
- *Autores : Jeffrey Garcia, Mauricio Cortés
+ *Autores : Jeffrey Garcia, Mauricio CortÃ©s
  *fecha de creacion : 9 de noviembre del 2017
- *fecha última modificacion : 25 de noviembre del 2017
+ *fecha Ãºltima modificacion : 25 de noviembre del 2017
  *vesion : 1.0
  *Archivo: ClaseGrafo.h
 */
@@ -21,6 +21,7 @@ protected:
 	vector<vector<int> > P; //Ponderaciones
 	int nAri;
 	int nVert;
+	//jfhjdrlkghfgh
 public:
 	/* Constructoras */
 	Grafo(); //CrearGrafoVacio
