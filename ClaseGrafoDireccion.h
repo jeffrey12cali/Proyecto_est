@@ -41,8 +41,6 @@ public:
 	vector<T> ObtenerVertices();
 	vector<int> ObtenerPonderaciones(T n1);
 
-
-	~GrafoDireccion();
 };
 /******************************************************************************************************************/
 template <class T>
@@ -230,8 +228,5 @@ vector<int> GrafoDireccion<T>::ObtenerPonderaciones(T n1){
 	return P[pos];
 }
 /*********************************************************************************************************************/
-template <class T>
-GrafoDireccion<T>::~GrafoDireccion(){
-}
 
 #endif // __GRAFO_DIRECCION_H

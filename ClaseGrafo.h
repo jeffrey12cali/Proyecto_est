@@ -144,8 +144,6 @@ public:
 	 */
 	vector<int> ObtenerPonderaciones(T n1);
 
-	/* DESTRUCTORAS */
-	~Grafo();
 };
 /******************************************************************************************************************/
 template <class T>
@@ -361,8 +359,5 @@ vector<int> Grafo<T>::ObtenerPonderaciones(T n1){
 	return P[pos];
 }
 /*********************************************************************************************************************/
-template <class T>
-Grafo<T>::~Grafo(){
-}
 
 #endif // __GRAFO_H

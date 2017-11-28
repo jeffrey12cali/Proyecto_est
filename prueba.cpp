@@ -28,6 +28,7 @@ int main(){
 	cout << g.ObtenerNumAristas() << endl;
 	OperacionesGrafo<char> op;
 	op.Dijkstra(g,'A');
+	delete g;
 	/*vector<char> path(op.DepthFirstSearch(g, 'A'));
 	for (int i = 0; i < path.size(); i++)
 		cout << path[i] << " ";*/

@@ -23,8 +23,6 @@ class NodoDist{
 public:
 	T nodo;
 	int distancia;
-	NodoDist(){};
-	~NodoDist(){};
 };
 
 template <class T>
@@ -39,14 +37,12 @@ public:
 template <class T>
 class OperacionesGrafo{
 public:
-	OperacionesGrafo(){};
 	vector<T> BreadthFirstSearch(Grafo<T> grafo, T raiz);
 	vector<T> BreadthFirstSearch(GrafoDireccion<T> grafo, T raiz);
 	vector<T> DepthFirstSearch(Grafo<T> grafo, T raiz);
 	vector<T> DepthFirstSearch(GrafoDireccion<T> grafo, T raiz);
 	void Dijkstra(Grafo<T> grafo, T raiz);
 	void Dijkstra(GrafoDireccion<T> grafo, T raiz);
-	~OperacionesGrafo(){};
 };
 
 template <class T>
