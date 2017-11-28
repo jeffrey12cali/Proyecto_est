@@ -49,7 +49,19 @@ public:
 	 */
 	vector<T> BreadthFirstSearch(Grafo<T> grafo, T raiz);
 	vector<T> BreadthFirstSearch(GrafoDireccion<T> grafo, T raiz);
-
+	/* DepthFirstSearch (Grafo<T> grafo,T raiz)
+	*Entradas: Grafo<T> grafo , raiz (nodo)
+	*Salidas:
+	*Vector<T> En el cual cada posicion muestra el recorrido realizado  por el algoritmo a través de los nodos del grafo.
+	*Procedimiento: Se crea un vector vis para almacenar las posiciones de los nodos visitados, se crea vector cabezaPila
+	*para almacenar los nodos adyacentes al nodo que esta siendo procesado y se crea un vector nodos para guardar los nodos que 
+	*ha procesado el algoritmo.Se crea una pila y se le ingresa la raiz,igualmente a nodos se le ingresa la raiz.
+	*Mientras la pila no esta vacia retira el primer elemento de la pila, lo ingresa al vector nodos, 
+	*en el vector cabezaPila se ingresan los nodos adyacentes del nodo retirado y luego verifica cada uno
+	*de ellos y si no estan vis los marca como visitados y los ingresa a 
+	*la pila, asi sucesivamente hasta que la pila se encuentre vacia.
+	*Luego de ello retorna el vector nodos en el cual esta el recorrido de todo el algoritmo en profundidad.
+	*/
 
 	vector<T> DepthFirstSearch(Grafo<T> grafo, T raiz);
 	vector<T> DepthFirstSearch(GrafoDireccion<T> grafo, T raiz);
@@ -106,19 +118,6 @@ vector<T> OperacionesGrafo<T>::BreadthFirstSearch(Grafo<T> grafo, T raiz){
 	return out;
 }
 
-/*
-DepthFirstSearch (Grafo<T> grafo,T raiz)
-*Entradas: Grafo<T> grafo , raiz (nodo)
-*Salidas:
-*Vector<T> En el cual cada posicion muestra el recorrido realizado  por el algoritmo a través de los nodos del grafo.
-*Procedimiento: Se crea un vector vis para almacenar las posiciones de los nodos visitados, se crea vector cabezaPila
-para almacenar los nodos adyacentes al nodo que esta siendo procesado y se crea un vector nodos para guardar los nodos que 
-ha procesado el algoritmo.Se crea una pila y se le ingresa la raiz,igualmente a nodos se le ingresa la raiz.
-Mientras la pila no esta vacia retira el primer elemento de la pila, lo ingresa al vector nodos, 
-en el vector cabezaPila se ingresan los nodos adyacentes del nodo retirado y luego verifica cada uno
-de ellos y si no estan vis los marca como visitados y los ingresa a 
-la pila, asi sucesivamente hasta que la pila se encuentre vacia.
-Luego de ello retorna el vector nodos en el cual esta el recorrido de todo el algoritmo en profundidad.
 
 template <class T>
 vector<T> OperacionesGrafo<T>::DepthFirstSearch(Grafo<T> grafo, T raiz){
