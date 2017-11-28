@@ -1,8 +1,8 @@
 /*
  *Autores : Jeffrey Garcia, Mauricio Cortés
  *fecha de creacion : 9 de noviembre del 2017
- *fecha última modificacion : 25 de noviembre del 2017
- *vesion : 0.9
+ *fecha última modificacion : 28 de noviembre del 2017
+ *vesion : 1.0
  *Archivo: ClaseOperacionesGrafo.h
 */
 
@@ -37,10 +37,37 @@ public:
 template <class T>
 class OperacionesGrafo{
 public:
+	/* BreadthFirstSearch(Grafo<T> grafo, T raiz);
+	 * Entradas: grafo, raíz (nodo); 
+	 * Salidas: vector de recorrido;
+	 * Procedimiento: Primero se inicia el nodo raiz como visitado y se inserta
+	 * a la cola. Mientras la cola no esté vacía va a verificar cada nodo en el 
+	 * frente de la cola, al que se le va a sacar su lista de adyacencia y se va
+	 * a proceder a poner cada nodo adyacente al que se está examinando actulamente
+	 * como visitado y se ingresa a la cola, por úlitmo, se envía el nodo que se
+	 * proceso al vector de salida y se saca de la cola.
+	 */
 	vector<T> BreadthFirstSearch(Grafo<T> grafo, T raiz);
 	vector<T> BreadthFirstSearch(GrafoDireccion<T> grafo, T raiz);
+
+
 	vector<T> DepthFirstSearch(Grafo<T> grafo, T raiz);
 	vector<T> DepthFirstSearch(GrafoDireccion<T> grafo, T raiz);
+
+	/* Dijkstra(Grafo<T> grafo, T raiz);
+	 * Entradas: grafo, raíz (nodo); 
+	 * Salidas: impresión;
+	 * Procedimiento: Se establece la distancia y el padre de la raíz como 0 y él mismo respectivamente,
+	 * se ingresa a la cola de prioridad el nodo con su respectiva distancia a el nodo raíz. Mientras la
+	 * cola de prioridad esté vacía se toma el primer elemento de la cola, es decir, el de menor distancia
+	 * y se procesa. Primero se marca ese nodo como visitado. Y posteriormente a sus nodos adyacentes se les
+	 * hace la comprobación de que si su distancia es mayor a la ponderación mas la distancia actual de ese nodo. 
+	 * Sí, esto es verdad, entonces se procede a cambiar la distancia del nodo adyacente por la distancia más la
+	 * ponderación y se colocoa como padre el nodo que se está analizando actualmente. 
+	 * Por último se agrega cada nodo adyacente a la cola de prioridad con su respectivo identificador y distancia.
+	 * Al terminar el proceso con cada nodo se saca de la cola y se imprimen los valores necesarios para encontrar 
+	 * los caminos más cortos desde la raíz hacia cualquier nodo. 
+	 */
 	void Dijkstra(Grafo<T> grafo, T raiz);
 	void Dijkstra(GrafoDireccion<T> grafo, T raiz);
 };
