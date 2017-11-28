@@ -1,7 +1,7 @@
 /*
- *Autores : Jeffrey Garcia, Mauricio Cortés
+ *Autores : Jeffrey Garcia, Mauricio CortÃ©s
  *fecha de creacion : 9 de noviembre del 2017
- *fecha última modificacion : 28 de noviembre del 2017
+ *fecha Ãºltima modificacion : 28 de noviembre del 2017
  *vesion : 1.0
  *Archivo: ClaseOperacionesGrafo.h
 */
@@ -38,13 +38,13 @@ template <class T>
 class OperacionesGrafo{
 public:
 	/* BreadthFirstSearch(Grafo<T> grafo, T raiz);
-	 * Entradas: grafo, raíz (nodo); 
+	 * Entradas: grafo, raÃ­z (nodo); 
 	 * Salidas: vector de recorrido;
 	 * Procedimiento: Primero se inicia el nodo raiz como visitado y se inserta
-	 * a la cola. Mientras la cola no esté vacía va a verificar cada nodo en el 
+	 * a la cola. Mientras la cola no estÃ© vacÃ­a va a verificar cada nodo en el 
 	 * frente de la cola, al que se le va a sacar su lista de adyacencia y se va
-	 * a proceder a poner cada nodo adyacente al que se está examinando actulamente
-	 * como visitado y se ingresa a la cola, por úlitmo, se envía el nodo que se
+	 * a proceder a poner cada nodo adyacente al que se estÃ¡ examinando actulamente
+	 * como visitado y se ingresa a la cola, por Ãºlitmo, se envÃ­a el nodo que se
 	 * proceso al vector de salida y se saca de la cola.
 	 */
 	vector<T> BreadthFirstSearch(Grafo<T> grafo, T raiz);
@@ -55,18 +55,18 @@ public:
 	vector<T> DepthFirstSearch(GrafoDireccion<T> grafo, T raiz);
 
 	/* Dijkstra(Grafo<T> grafo, T raiz);
-	 * Entradas: grafo, raíz (nodo); 
-	 * Salidas: impresión;
-	 * Procedimiento: Se establece la distancia y el padre de la raíz como 0 y él mismo respectivamente,
-	 * se ingresa a la cola de prioridad el nodo con su respectiva distancia a el nodo raíz. Mientras la
-	 * cola de prioridad esté vacía se toma el primer elemento de la cola, es decir, el de menor distancia
+	 * Entradas: grafo, raÃ­z (nodo); 
+	 * Salidas: impresiÃ³n;
+	 * Procedimiento: Se establece la distancia y el padre de la raÃ­z como 0 y Ã©l mismo respectivamente,
+	 * se ingresa a la cola de prioridad el nodo con su respectiva distancia a el nodo raÃ­z. Mientras la
+	 * cola de prioridad estÃ© vacÃ­a se toma el primer elemento de la cola, es decir, el de menor distancia
 	 * y se procesa. Primero se marca ese nodo como visitado. Y posteriormente a sus nodos adyacentes se les
-	 * hace la comprobación de que si su distancia es mayor a la ponderación mas la distancia actual de ese nodo. 
-	 * Sí, esto es verdad, entonces se procede a cambiar la distancia del nodo adyacente por la distancia más la
-	 * ponderación y se colocoa como padre el nodo que se está analizando actualmente. 
-	 * Por último se agrega cada nodo adyacente a la cola de prioridad con su respectivo identificador y distancia.
+	 * hace la comprobaciÃ³n de que si su distancia es mayor a la ponderaciÃ³n mas la distancia actual de ese nodo. 
+	 * SÃ­, esto es verdad, entonces se procede a cambiar la distancia del nodo adyacente por la distancia mÃ¡s la
+	 * ponderaciÃ³n y se colocoa como padre el nodo que se estÃ¡ analizando actualmente. 
+	 * Por Ãºltimo se agrega cada nodo adyacente a la cola de prioridad con su respectivo identificador y distancia.
 	 * Al terminar el proceso con cada nodo se saca de la cola y se imprimen los valores necesarios para encontrar 
-	 * los caminos más cortos desde la raíz hacia cualquier nodo. 
+	 * los caminos mÃ¡s cortos desde la raÃ­z hacia cualquier nodo. 
 	 */
 	void Dijkstra(Grafo<T> grafo, T raiz);
 	void Dijkstra(GrafoDireccion<T> grafo, T raiz);
@@ -105,6 +105,20 @@ vector<T> OperacionesGrafo<T>::BreadthFirstSearch(Grafo<T> grafo, T raiz){
 	}
 	return out;
 }
+
+/*
+DepthFirstSearch (Grafo<T> grafo,T raiz)
+*Entradas: Grafo<T> grafo , raiz (nodo)
+*Salidas:
+*Vector<T> En el cual cada posicion muestra el recorrido realizado  por el algoritmo a travÃ©s de los nodos del grafo.
+*Procedimiento: Se crea un vector vis para almacenar las posiciones de los nodos visitados, se crea vector cabezaPila
+para almacenar los nodos adyacentes al nodo que esta siendo procesado y se crea un vector nodos para guardar los nodos que 
+ha procesado el algoritmo.Se crea una pila y se le ingresa la raiz,igualmente a nodos se le ingresa la raiz.
+Mientras la pila no esta vacia retira el primer elemento de la pila, lo ingresa al vector nodos, 
+en el vector cabezaPila se ingresan los nodos adyacentes del nodo retirado y luego verifica cada uno
+de ellos y si no estan vis los marca como visitados y los ingresa a 
+la pila, asi sucesivamente hasta que la pila se encuentre vacia.
+Luego de ello retorna el vector nodos en el cual esta el recorrido de todo el algoritmo en profundidad.
 
 template <class T>
 vector<T> OperacionesGrafo<T>::DepthFirstSearch(Grafo<T> grafo, T raiz){
