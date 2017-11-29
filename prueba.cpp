@@ -17,7 +17,7 @@ int main(){
 	op.Dijkstra(g, 1);*/
 	char myints[] = {'A','B','C','D','E'};
 	vector<char> fifth (myints, myints + sizeof(myints) / sizeof(char) );
-	GrafoDireccion<char> g(fifth);
+	Grafo<char> g(fifth);
 	g.AgregarArista('A','B',5);
 	g.AgregarArista('B','C',3);
 	g.AgregarArista('B','D',1);
@@ -28,7 +28,6 @@ int main(){
 	cout << g.ObtenerNumAristas() << endl;
 	OperacionesGrafo<char> op;
 	op.Dijkstra(g,'A');
-	delete g;
 	/*vector<char> path(op.DepthFirstSearch(g, 'A'));
 	for (int i = 0; i < path.size(); i++)
 		cout << path[i] << " ";*/
