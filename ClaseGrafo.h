@@ -115,7 +115,7 @@ public:
 	*/
 	vector<T> ObtenerListaAdy(T n1);
 
-	/* ObtenerNumVercies();
+	/* ObtenerNumVertices();
 	 * Entradas: NULL; 
 	 * Salidas: Número de vertices en el grafo;
 	 * Procedimiento: Retorna el atributo nVert de la clase grafo. 
