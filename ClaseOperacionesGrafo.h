@@ -49,6 +49,7 @@ public:
 	 */
 	vector<T> BreadthFirstSearch(Grafo<T> grafo, T raiz);
 	vector<T> BreadthFirstSearch(GrafoDireccion<T> grafo, T raiz);
+	
 	/* DepthFirstSearch (Grafo<T> grafo,T raiz)
 	*Entradas: Grafo<T> grafo , raiz (nodo)
 	*Salidas:
@@ -62,7 +63,6 @@ public:
 	*la pila, asi sucesivamente hasta que la pila se encuentre vacia.
 	*Luego de ello retorna el vector nodos en el cual esta el recorrido de todo el algoritmo en profundidad.
 	*/
-
 	vector<T> DepthFirstSearch(Grafo<T> grafo, T raiz);
 	vector<T> DepthFirstSearch(GrafoDireccion<T> grafo, T raiz);
 
